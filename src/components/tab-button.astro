@@ -1,4 +1,8 @@
-<button class='tab-button'><span class='inset'>Click me</span></button>
+---
+const {text} = Astro.props;
+---
+
+<button class='tab-button'><span class='inset'>{text}</span></button>
 
 <style>
 	.tab-button {
