@@ -28,14 +28,18 @@ const {text = "Click me"} = Astro.props;
 		cursor: pointer;
 		transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 		box-shadow:
+			2px 2px 2px 0.5px color-mix(in srgb, var(--bg) 40%, white 100%),
+			-2px -2px 2px 0.5px color-mix(in srgb, var(--bg) 40%, black 100%),
 			inset 2px 2px 2px 0.5px color-mix(in srgb, var(--bg) 40%, white 100%),
 			inset -2px -2px 2px 0.5px color-mix(in srgb, var(--bg) 40%, black 100%);
 
 		&:active,
 		&.active {
 			box-shadow:
-				inset -2px -2px 2px 0.5px color-mix(in srgb, var(--bg) 40%, white 100%),
-				inset 2px 2px 2px 0.5px color-mix(in srgb, var(--bg) 40%, black 100%);
+				2px 2px 2px 0.5px color-mix(in srgb, var(--bg) 40%, white 100%),
+				-2px -2px 2px 0.5px color-mix(in srgb, var(--bg) 40%, black 100%),
+				inset -1px -1px 1px 0px color-mix(in srgb, var(--bg) 40%, white 100%),
+				inset 1px 1px 1px 0px color-mix(in srgb, var(--bg) 40%, black 100%);
 			transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 		}
 	}

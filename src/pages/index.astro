@@ -11,13 +11,13 @@ import Button from "../components/button.astro";
 	<Page>
 		<div class='container'>
 			<div class='tabs'>
-				<TabButton text='Tab 1' />
-				<TabButton text='Tab 2' />
-				<TabButton text='Gioia' />
+				<TabButton text='Variables' />
+				<TabButton text='Description' />
+				<TabButton text='Traits' />
 			</div>
 			<div class='buttons'>
-				<Button text='Button 1' />
-				<Button text='Button 2' />
+				<Button text='Generate new' />
+				<Button text='Lock seed' />
 			</div>
 		</div>
 	</Page>
@@ -25,11 +25,20 @@ import Button from "../components/button.astro";
 
 <style>
 	.container {
+		--bg: #989898;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		gap: 10px;
+		padding: 10px;
+		position: relative;
+		background-color: var(--bg);
+		box-shadow:
+			2px 2px 2px 0.5px color-mix(in srgb, var(--bg) 40%, white 100%),
+			-2px -2px 2px 0.5px color-mix(in srgb, var(--bg) 40%, black 100%),
+			inset 2px 2px 2px 0.5px color-mix(in srgb, var(--bg) 40%, white 100%),
+			inset -2px -2px 2px 0.5px color-mix(in srgb, var(--bg) 40%, black 100%);
 	}
 
 	.tabs {
@@ -46,5 +55,13 @@ import Button from "../components/button.astro";
 		align-items: center;
 		justify-content: center;
 		gap: 10px;
+	}
+
+	@supports not (color: color-mix(in srgb, black 50%, white)) {
+		.container {
+			box-shadow:
+				inset 1px 1px 1px 0.5px #c5c4c4,
+				inset -1px -1px 1px 0.5px #00000073;
+		}
 	}
 </style>
