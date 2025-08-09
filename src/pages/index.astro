@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+import TabButton from "../components/tab-button.astro";
+import Page from "../components/page.astro";
+import Button from "../components/button.astro";
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+	<Page>
+		<div class='tabs'>
+			<TabButton />
+			<TabButton />
+			<TabButton />
+		</div>
+		<div class='buttons'>
+			<Button />
+			<Button />
+		</div>
+	</Page>
+</Layout>

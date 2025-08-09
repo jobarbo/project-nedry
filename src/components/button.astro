@@ -1,0 +1,62 @@
+<button class='button'><span class='inset'>Click me</span></button>
+
+<style>
+	.button {
+		--bg: #9ca194;
+		--text-color: #9ca194;
+		--text-color-active: #cad1be;
+		/* adjust this to change how soft the inset text looks */
+		--inset-blur: 0.8px;
+		background-color: var(--bg);
+		border: none;
+		padding: 10px 20px;
+		display: inline-block;
+		position: relative;
+		cursor: pointer;
+		transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+		box-shadow:
+			inset 2px 2px 2px 0.5px color-mix(in srgb, var(--bg) 40%, white 100%),
+			inset -2px -2px 2px 0.5px color-mix(in srgb, var(--bg) 40%, black 100%);
+
+		&:active {
+			box-shadow:
+				inset -2px -2px 2px 0.5px color-mix(in srgb, var(--bg) 40%, white 100%),
+				inset 2px 2px 2px 0.5px color-mix(in srgb, var(--bg) 40%, black 100%);
+			transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+		}
+	}
+
+	.button .inset {
+		color: var(--text-color);
+		font-size: 22px;
+		font-weight: 800;
+		line-height: 1.5;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: transparent;
+		text-shadow:
+			1px 1px 1px var(--text-color),
+			0.5px 0.5px 0.5px #000,
+			1.5px 1.5px 1px #fff;
+		-webkit-font-smoothing: antialiased;
+		text-align: center;
+		display: inline-block;
+		transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+	}
+
+	.button:active .inset {
+		text-shadow:
+			0.5px 0.5px 1px var(--text-color-active),
+			1.5px 1.5px 1px #000,
+			0.5px 0.5px 0.5px #fff;
+		transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+	}
+
+	@supports not (color: color-mix(in srgb, black 50%, white)) {
+		.button {
+			box-shadow:
+				inset 1px 1px 1px 0.5px #c5c4c4,
+				inset -1px -1px 1px 0.5px #00000073;
+		}
+	}
+</style>
