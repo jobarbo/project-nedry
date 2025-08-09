@@ -1,15 +1,23 @@
 ---
-const {text} = Astro.props;
+const {text = "Tab"} = Astro.props;
 ---
 
-<button class='tab-button'><span class='inset'>{text}</span></button>
+<button data-tab-button class='tab-button'><span class='inset'>{text}</span></button>
+
+<script>
+	const tabButtons = document.querySelectorAll("[data-tab-button]");
+	tabButtons?.forEach((tabButton) => {
+		tabButton?.addEventListener("click", () => {
+			tabButton?.classList.toggle("active");
+		});
+	});
+</script>
 
 <style>
 	.tab-button {
 		--bg: #7e7e7e;
 		--text-color: var(--bg);
 		--text-color-active: #cdcbcb;
-		/* adjust this to change how soft the inset text looks */
 		--inset-blur: 0.8px;
 		background-color: var(--bg);
 		border: none;
@@ -22,7 +30,8 @@ const {text} = Astro.props;
 			inset 2px 2px 2px 0.5px color-mix(in srgb, var(--bg) 40%, white 100%),
 			inset -2px -2px 2px 0.5px color-mix(in srgb, var(--bg) 40%, black 100%);
 
-		&:active {
+		&:active,
+		&.active {
 			box-shadow:
 				inset -2px -2px 2px 0.5px color-mix(in srgb, var(--bg) 40%, white 100%),
 				inset 2px 2px 2px 0.5px color-mix(in srgb, var(--bg) 40%, black 100%);
@@ -47,7 +56,8 @@ const {text} = Astro.props;
 		transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 	}
 
-	.tab-button:active .inset {
+	.tab-button:active .inset,
+	.tab-button.active .inset {
 		text-shadow:
 			0.5px 0.5px 1px var(--text-color-active),
 			1.5px 1.5px 1px #000,

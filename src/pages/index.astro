@@ -9,14 +9,42 @@ import Button from "../components/button.astro";
 
 <Layout>
 	<Page>
-		<div class='tabs'>
-			<TabButton text='Tab 1' />
-			<TabButton text='Tab 2' />
-			<TabButton text='Gioia' />
-		</div>
-		<div class='buttons'>
-			<Button />
-			<Button />
+		<div class='container'>
+			<div class='tabs'>
+				<TabButton text='Tab 1' />
+				<TabButton text='Tab 2' />
+				<TabButton text='Gioia' />
+			</div>
+			<div class='buttons'>
+				<Button text='Button 1' />
+				<Button text='Button 2' />
+			</div>
 		</div>
 	</Page>
 </Layout>
+
+<style>
+	.container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+	}
+
+	.tabs {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+	}
+
+	.buttons {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+	}
+</style>
